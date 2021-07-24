@@ -1,5 +1,6 @@
 import Head from "next/head";
 
+import EventsList from "../components/eventslist";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -19,20 +20,9 @@ export default function Home() {
 
         <h2>Events list</h2>
 
-        <table>
-          <thead>
-            <tr>
-              <th>Event Name</th>
-              <th>Event ID</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Event Name</td>
-              <td>Event ID</td>
-            </tr>
-          </tbody>
-        </table>
+        <div>
+          <EventsList />
+        </div>
       </main>
 
       <footer className={styles.footer}>
