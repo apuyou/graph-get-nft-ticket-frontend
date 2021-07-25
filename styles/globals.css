@@ -9,3 +9,15 @@ body {
 * {
   box-sizing: border-box;
 }
+
+table td,
+table th {
+  padding-right: 10px;
+}
+table thead {
+  background: #dddddd;
+}
+table thead th {
+  font-weight: bold;
+  text-align: left;
+}
