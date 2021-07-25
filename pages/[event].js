@@ -6,8 +6,8 @@ import TicketsList from "../components/ticketslist";
 import Layout from "../components/layout";
 import styles from "../styles/Home.module.css";
 
-const GET_EVENTS = gql`
-  query GetEvents($eventAddress: String!) {
+const GET_EVENT = gql`
+  query GetEvent($eventAddress: String!) {
     event(id: $eventAddress) {
       id
       name
@@ -21,12 +21,13 @@ const GET_EVENTS = gql`
 
 export default function Event() {
   const { query } = useRouter();
-  const { loading, error, data } = useQuery(GET_EVENTS, {
+  const { loading, error, data } = useQuery(GET_EVENT, {
     variables: { eventAddress: query.event },
+    skip: !query?.event,
   });
 
   const Result = () => {
-    if (loading) {
+    if (loading || !data) {
       return <p>Loading...</p>;
     }
     if (error) {
