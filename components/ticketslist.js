@@ -1,3 +1,5 @@
+import Address from "./address";
+
 export default function TicketsList({ event }) {
   return (
     <table>
@@ -11,7 +13,9 @@ export default function TicketsList({ event }) {
         {event.tickets.map(({ id, owner }) => (
           <tr key={id}>
             <td>{id}</td>
-            <td>{owner}</td>
+            <td>
+              <Address address={owner} />
+            </td>
           </tr>
         ))}
       </tbody>

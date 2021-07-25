@@ -46,7 +46,7 @@ export default function Event() {
       <h2>
         Tickets list
         <br />
-        {data.event.name}
+        {data?.event?.name}
         <br />
         {query.event}
       </h2>

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useQuery, gql } from "@apollo/client";
 
+import Address from "./address";
+
 const GET_EVENTS = gql`
   query GetEvents {
     events(last: 100) {
@@ -24,19 +26,21 @@ export default function EventsList() {
     <table>
       <thead>
         <tr>
-          <th>Event Name</th>
-          <th>Event ID</th>
+          <th>ID</th>
+          <th>Name</th>
         </tr>
       </thead>
       <tbody>
         {data.events.map(({ id, name }) => (
           <tr key={id}>
-            <td>{name}</td>
             <td>
               <Link href={{ pathname: "/[event]", query: { event: id } }}>
-                <a>{id}</a>
+                <a>
+                  <Address address={id} />
+                </a>
               </Link>
             </td>
+            <td>{name}</td>
           </tr>
         ))}
       </tbody>
