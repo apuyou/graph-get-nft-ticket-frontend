@@ -1,4 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 import TicketsList from "../components/ticketslist";
@@ -43,13 +44,19 @@ export default function Event() {
     <Layout>
       <h1 className={styles.title}>GET NFT Tickets Subgraph Explorer</h1>
 
-      <h2>
+      <h2 className={styles.eventdetails}>
         Tickets list
         <br />
         {data?.event?.name}
         <br />
         {query.event}
       </h2>
+
+      <div className={styles.back}>
+        <Link href="/">
+          <a>&laquo; Back</a>
+        </Link>
+      </div>
 
       <Result />
     </Layout>

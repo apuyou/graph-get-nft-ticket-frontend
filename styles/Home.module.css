@@ -57,3 +57,11 @@
   line-height: 1.5;
   font-size: 1.5rem;
 }
+
+.back {
+  margin: 20px 0;
+}
+
+.eventdetails {
+  text-align: center;
+}
