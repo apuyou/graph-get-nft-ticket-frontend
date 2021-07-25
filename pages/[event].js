@@ -21,13 +21,13 @@ const GET_EVENT = gql`
 
 export default function Event() {
   const { query } = useRouter();
-  const { loading, error, data } = useQuery(GET_EVENT, {
+  const { error, data } = useQuery(GET_EVENT, {
     variables: { eventAddress: query.event },
     skip: !query?.event,
   });
 
   const Result = () => {
-    if (loading || !data) {
+    if (!data) {
       return <p>Loading...</p>;
     }
     if (error) {

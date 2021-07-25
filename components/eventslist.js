@@ -13,9 +13,9 @@ const GET_EVENTS = gql`
 `;
 
 export default function EventsList() {
-  const { loading, error, data } = useQuery(GET_EVENTS);
+  const { error, data } = useQuery(GET_EVENTS);
 
-  if (loading) {
+  if (!data) {
     return <p>Loading...</p>;
   }
   if (error) {
